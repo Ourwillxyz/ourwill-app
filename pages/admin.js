@@ -36,34 +36,59 @@ export default function Admin() {
   }
 
   return (
-    <div style={{ maxWidth: 500, margin: "40px auto" }}>
-      <h2>Admin Dashboard</h2>
-      {err && <p style={{ color: "red" }}>{err}</p>}
-      <table border="1" cellPadding={8} style={{ width: "100%" }}>
-        <thead>
-          <tr>
-            <th>ID</th><th>Username</th><th>Role</th><th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          {users.map(u => (
-            <tr key={u.id}>
-              <td>{u.id}</td>
-              <td>{u.username}</td>
-              <td>{u.isAdmin ? "Admin" : "User"}</td>
-              <td>
-                {u.isAdmin ? "—" : (
-                  <button onClick={() => handleDelete(u.id)}>Delete</button>
-                )}
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-      <button onClick={() => {
-        localStorage.removeItem("token");
-        router.push("/");
-      }}>Logout</button>
+    <div className="admin-bg">
+      <div className="admin-logo-container">
+        <img src="/ourwill-logo.png" alt="OurWill Logo" className="admin-logo" />
+      </div>
+      <div className="admin-center-container">
+        <div className="admin-glass-card">
+          <h2 className="admin-title">Admin Dashboard</h2>
+          {err && <p className="admin-error">{err}</p>}
+          <div className="admin-table-wrapper">
+            <table className="admin-table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Username</th>
+                  <th>Role</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {users.map(u => (
+                  <tr key={u.id}>
+                    <td>{u.id}</td>
+                    <td>{u.username}</td>
+                    <td>
+                      <span className={u.isAdmin ? "badge-admin" : "badge-user"}>
+                        {u.isAdmin ? "Admin" : "User"}
+                      </span>
+                    </td>
+                    <td>
+                      {u.isAdmin ? (
+                        <span className="admin-dash">—</span>
+                      ) : (
+                        <button className="admin-delete-btn" onClick={() => handleDelete(u.id)}>
+                          Delete
+                        </button>
+                      )}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <button
+            className="admin-logout-btn"
+            onClick={() => {
+              localStorage.removeItem("token");
+              router.push("/");
+            }}
+          >
+            Logout
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
