@@ -29,7 +29,6 @@ body {
   max-width: 96vw;
   height: auto;
   display: block;
-  /* Add bold drop shadow for visibility */
   filter: drop-shadow(0px 5px 22px rgba(0,0,0,0.23));
   transition: width 0.2s;
 }
