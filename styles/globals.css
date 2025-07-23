@@ -20,15 +20,18 @@ body {
 .admin-logo-container {
   display: flex;
   justify-content: center;
-  margin-top: 2.2rem;
-  margin-bottom: 1.3rem;
+  margin-top: 2.7rem;
+  margin-bottom: 1.7rem;
   width: 100vw;
 }
 .admin-logo {
-  width: 180px;
-  max-width: 95vw;
+  width: 320px;
+  max-width: 96vw;
   height: auto;
   display: block;
+  /* Add bold drop shadow for visibility */
+  filter: drop-shadow(0px 5px 22px rgba(0,0,0,0.23));
+  transition: width 0.2s;
 }
 
 .admin-center-container {
@@ -39,7 +42,6 @@ body {
 }
 
 .admin-glass-card {
-  /* Glass effect: More transparent to allow flag visibility */
   background: rgba(255, 255, 255, 0.68);
   backdrop-filter: blur(2.5px);
   -webkit-backdrop-filter: blur(2.5px);
@@ -89,7 +91,6 @@ body {
   width: 100%;
   max-width: 600px;
   border-collapse: collapse;
-  /* Opaque background for table -- allows flag to show through */
   background: rgba(249, 250, 251, 0.75);
   border-radius: 8px;
   overflow: hidden;
@@ -100,7 +101,6 @@ body {
 .admin-table th, .admin-table td {
   padding: 0.85rem 1.05rem;
   text-align: center;
-  /* Make cell backgrounds slightly transparent */
   background: rgba(255,255,255,0.74);
 }
 
@@ -173,6 +173,12 @@ body {
 }
 .admin-logout-btn:hover {
   background: #2563eb;
+}
+
+@media (max-width: 900px) {
+  .admin-logo {
+    width: 210px;
+  }
 }
 
 @media (max-width: 600px) {
