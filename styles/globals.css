@@ -8,107 +8,176 @@ body {
   padding: 0;
 }
 
-.main-center-container {
+.admin-bg {
   min-height: 100vh;
+  min-width: 100vw;
   display: flex;
-  align-items: center;
-  justify-content: center;
   flex-direction: column;
-  padding: 2rem;
+  align-items: center;
+  justify-content: flex-start;
 }
 
-.logo {
-  width: 180px;
-  margin-bottom: 1.5rem;
-}
-
-.glass-card {
-  background: rgba(255, 255, 255, 0.92);
-  padding: 2rem;
-  border-radius: 10px;
-  width: 100%;
-  max-width: 400px;
-  box-shadow: 0 2px 16px 0 rgba(0,0,0,0.07);
-}
-
-.tab-buttons {
+.admin-logo-container {
   display: flex;
-  gap: 8px;
-  margin-bottom: 22px;
   justify-content: center;
+  margin-top: 2.2rem;
+  margin-bottom: 1.3rem;
+  width: 100vw;
+}
+.admin-logo {
+  width: 180px;
+  max-width: 95vw;
+  height: auto;
+  display: block;
 }
 
-.tab-btn {
-  flex: 1;
-  padding: 10px 0;
-  background: #ece9f7;
-  color: #3b82f6;
-  border: none;
-  border-radius: 8px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.15s, color 0.15s;
-}
-.tab-btn.active {
-  background: #3b82f6;
-  color: #fff;
+.admin-center-container {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
-.input-lg {
+.admin-glass-card {
+  background: rgba(255, 255, 255, 0.97);
+  padding: 2.5rem 2rem 2rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 16px 0 rgba(0,0,0,0.07);
   width: 100%;
-  padding: 0.6rem 0.8rem;
-  background: #fff;
-  color: #000;
-  border: 1px solid #cbd5e1;
-  border-radius: 6px;
-  margin-bottom: 1rem;
-  font-size: 1rem;
+  max-width: 700px;
+  margin: 0 auto;
+  margin-bottom: 3rem;
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.button-lg {
-  width: 100%;
-  padding: 0.8rem 0;
-  background: #3b82f6;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  font-size: 1.05rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background 0.2s;
-  margin-top: 0.2rem;
-  margin-bottom: 8px;
-}
-.button-lg:disabled {
-  background: #93c5fd;
-  cursor: not-allowed;
+.admin-title {
+  text-align: center;
+  color: #1d4ed8;
+  margin-bottom: 1.6rem;
+  letter-spacing: 1px;
+  font-size: 2.1rem;
+  font-weight: 700;
 }
 
-.alert-error {
-  width: 100%;
-  margin-bottom: 1rem;
+.admin-error {
   color: #ef4444;
   background: #fee2e2;
-  padding: 0.7rem;
+  padding: 0.7rem 1rem;
   border-radius: 4px;
   text-align: center;
-  font-size: 0.98rem;
-}
-.alert-success {
+  margin-bottom: 1.2rem;
   width: 100%;
-  margin-top: 1rem;
-  color: #22c55e;
-  background: #dcfce7;
-  padding: 0.7rem;
-  border-radius: 4px;
-  text-align: center;
-  font-size: 0.98rem;
+  font-size: 1.05rem;
 }
 
-.note {
-  margin-top: 1.3rem;
-  color: #555;
-  font-size: 0.97em;
-  line-height: 1.5;
+.admin-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
+  margin-top: 0.3rem;
+  display: flex;
+  justify-content: center;
+}
+
+.admin-table {
+  width: 100%;
+  max-width: 600px;
+  border-collapse: collapse;
+  background: #f9fafb;
+  border-radius: 8px;
+  overflow: hidden;
+  font-size: 1.08rem;
+}
+
+.admin-table th, .admin-table td {
+  padding: 0.85rem 1.05rem;
   text-align: center;
+}
+
+.admin-table th {
+  background: #1d4ed8;
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  font-size: 1.09rem;
+}
+
+.admin-table tr:nth-child(even) {
+  background: #e0e7ef;
+}
+
+.admin-table tr:nth-child(odd) {
+  background: #f2f6fb;
+}
+
+.badge-admin, .badge-user {
+  display: inline-block;
+  padding: 0.28em 1.1em;
+  border-radius: 999px;
+  font-size: 0.96em;
+  font-weight: 600;
+}
+.badge-admin {
+  background: #dbeafe;
+  color: #1d4ed8;
+  border: 1.5px solid #60a5fa;
+}
+.badge-user {
+  background: #fef9c3;
+  color: #b45309;
+  border: 1.5px solid #fde68a;
+}
+
+.admin-delete-btn {
+  background: #ef4444;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5em 1.3em;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.17s;
+}
+.admin-delete-btn:hover {
+  background: #b91c1c;
+}
+
+.admin-dash {
+  color: #888;
+  font-size: 1.4em;
+  font-weight: 700;
+}
+
+.admin-logout-btn {
+  margin-top: 1.3rem;
+  background: #1d4ed8;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.7em 2.1em;
+  font-size: 1.08em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.16s;
+  box-shadow: 0 1px 9px 0 rgba(30,64,175,0.08);
+}
+.admin-logout-btn:hover {
+  background: #2563eb;
+}
+
+@media (max-width: 600px) {
+  .admin-glass-card {
+    padding: 1.1rem 2vw 1.7rem 2vw;
+    max-width: 97vw;
+  }
+  .admin-table {
+    font-size: 0.99rem;
+  }
+  .admin-logo {
+    width: 120px;
+  }
 }
