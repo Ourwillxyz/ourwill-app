@@ -1,4 +1,114 @@
 body {
-  font-family: sans-serif;
-  background: #f8f8f8;
+  min-height: 100vh;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  background-image: url('/kenya-flag.jpg');
+  background-size: cover;
+  background-position: center;
+  margin: 0;
+  padding: 0;
+}
+
+.main-center-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 2rem;
+}
+
+.logo {
+  width: 180px;
+  margin-bottom: 1.5rem;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.92);
+  padding: 2rem;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 2px 16px 0 rgba(0,0,0,0.07);
+}
+
+.tab-buttons {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 22px;
+  justify-content: center;
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 10px 0;
+  background: #ece9f7;
+  color: #3b82f6;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+.tab-btn.active {
+  background: #3b82f6;
+  color: #fff;
+}
+
+.input-lg {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  background: #fff;
+  color: #000;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.button-lg {
+  width: 100%;
+  padding: 0.8rem 0;
+  background: #3b82f6;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.05rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 0.2rem;
+  margin-bottom: 8px;
+}
+.button-lg:disabled {
+  background: #93c5fd;
+  cursor: not-allowed;
+}
+
+.alert-error {
+  width: 100%;
+  margin-bottom: 1rem;
+  color: #ef4444;
+  background: #fee2e2;
+  padding: 0.7rem;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 0.98rem;
+}
+.alert-success {
+  width: 100%;
+  margin-top: 1rem;
+  color: #22c55e;
+  background: #dcfce7;
+  padding: 0.7rem;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 0.98rem;
+}
+
+.note {
+  margin-top: 1.3rem;
+  color: #555;
+  font-size: 0.97em;
+  line-height: 1.5;
+  text-align: center;
 }
