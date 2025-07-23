@@ -23,29 +23,48 @@ export default function Home() {
       setErr(data.error || "Login failed");
     }
   }
+
   return (
-    <div style={{ maxWidth: 300, margin: "100px auto" }}>
-      <h2>Login</h2>
-      <form onSubmit={handleLogin}>
-        <input
-          type="text"
-          placeholder="username"
-          value={username}
-          onChange={e => setUsername(e.target.value)}
-          required
-        /><br />
-        <input
-          type="password"
-          placeholder="password"
-          value={password}
-          onChange={e => setPassword(e.target.value)}
-          required
-        /><br />
-        <button type="submit">Login</button>
-      </form>
-      {err && <p style={{ color: "red" }}>{err}</p>}
-      <p>Admin: <b>admin / admin123</b></p>
-      <p>User: <b>user / user123</b></p>
+    <div className="main-center-container">
+      <img src="/ourwill-logo.png" alt="OurWill Logo" className="logo" />
+      <div className="glass-card">
+        <form onSubmit={handleLogin}>
+          <h2 style={{ textAlign: "center", marginBottom: 18, color: "#3b82f6" }}>
+            Admin Login
+          </h2>
+          {err && <div className="alert-error">{err}</div>}
+          <input
+            type="text"
+            placeholder="username"
+            value={username}
+            onChange={e => setUsername(e.target.value)}
+            required
+            className="input-lg"
+            style={{ marginBottom: 18 }}
+          />
+          <input
+            type="password"
+            placeholder="password"
+            value={password}
+            onChange={e => setPassword(e.target.value)}
+            required
+            className="input-lg"
+            style={{ marginBottom: 18 }}
+          />
+          <button type="submit" className="button-lg">
+            Login
+          </button>
+        </form>
+        <div className="note">
+          <div style={{ color: "#888", marginTop: 10 }}>Demo accounts:</div>
+          <div>
+            <strong>Admin:</strong> <span style={{ color: "#3b82f6" }}>admin / admin123</span>
+          </div>
+          <div>
+            <strong>User:</strong> <span style={{ color: "#3b82f6" }}>user / user123</span>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
