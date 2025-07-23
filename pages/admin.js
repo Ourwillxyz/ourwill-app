@@ -1,6 +1,13 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
+const groups = [
+  "candidate",
+  "agent",
+  "returning officer",
+  "observer"
+];
+
 export default function Admin() {
   const [users, setUsers] = useState([]);
   const [err, setErr] = useState("");
@@ -35,6 +42,31 @@ export default function Admin() {
     });
   }
 
+  // Handle group change
+  function handleGroupChange(id, newGroup) {
+    const token = localStorage.getItem("token");
+    fetch(`/api/users/${id}/group`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`
+      },
+      body: JSON.stringify({ group: newGroup }),
+    })
+    .then(r => r.json())
+    .then(data => {
+      if (data.success) {
+        setUsers(users =>
+          users.map(u =>
+            u.id === id ? { ...u, group: newGroup } : u
+          )
+        );
+      } else {
+        setErr(data.error || "Group update failed");
+      }
+    });
+  }
+
   return (
     <div className="admin-bg">
       <div className="admin-logo-container">
@@ -51,6 +83,7 @@ export default function Admin() {
                   <th>ID</th>
                   <th>Username</th>
                   <th>Role</th>
+                  <th>Group</th>
                   <th>Action</th>
                 </tr>
               </thead>
@@ -63,6 +96,45 @@ export default function Admin() {
                       <span className={u.isAdmin ? "badge-admin" : "badge-user"}>
                         {u.isAdmin ? "Admin" : "User"}
                       </span>
+                    </td>
+                    <td>
+                      {u.isAdmin ? (
+                        <span className="badge-group" style={{background:"#e0e7ef", color:"#888"}}>—</span>
+                      ) : (
+                        <span>
+                          <select
+                            value={u.group || ""}
+                            onChange={e => handleGroupChange(u.id, e.target.value)}
+                            style={{
+                              borderRadius: "6px",
+                              padding: "0.2em 0.5em",
+                              fontSize: "1em",
+                              background: "#fff",
+                              color: "#1d4ed8",
+                              border: "1px solid #60a5fa"
+                            }}
+                          >
+                            <option value="">Select group</option>
+                            {groups.map(g => (
+                              <option value={g} key={g}>{g.charAt(0).toUpperCase() + g.slice(1)}</option>
+                            ))}
+                          </select>
+                          {u.group &&
+                            <span className="badge-group" style={{
+                              marginLeft: 8,
+                              background: "#f3f4f6",
+                              color: "#2563eb",
+                              border: "1px solid #60a5fa",
+                              borderRadius: "12px",
+                              padding: "2px 12px",
+                              fontWeight: 600,
+                              fontSize: "0.96em"
+                            }}>
+                              {u.group}
+                            </span>
+                          }
+                        </span>
+                      )}
                     </td>
                     <td>
                       {u.isAdmin ? (
